@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 2e23d50f0c165458ea7015574f919177
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - sightPrefab: {fileID: 100000, guid: 9d7cf3a327e4b4fb4afcbdd9c9276d4b, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
