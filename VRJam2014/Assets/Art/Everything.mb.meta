@@ -2,7 +2,67 @@ fileFormatVersion: 2
 guid: 790ba91d61c184ae7b5ede3bef319334
 ModelImporter:
   serializedVersion: 16
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: group1
+    100004: pCube1
+    100006: pCube13
+    100008: pCube14
+    100010: pCube3
+    100012: pCube7
+    100014: pCube9
+    100016: pPyramid1
+    100018: pSphere1
+    100020: pSphere2
+    100022: pTorus1
+    100024: pTorus2
+    400000: //RootNode
+    400002: group1
+    400004: pCube1
+    400006: pCube13
+    400008: pCube14
+    400010: pCube3
+    400012: pCube7
+    400014: pCube9
+    400016: pPyramid1
+    400018: pSphere1
+    400020: pSphere2
+    400022: pTorus1
+    400024: pTorus2
+    2300000: pCube1
+    2300002: pCube13
+    2300004: pCube14
+    2300006: pCube3
+    2300008: pCube7
+    2300010: pCube9
+    2300012: pPyramid1
+    2300014: pSphere1
+    2300016: pSphere2
+    2300018: pTorus1
+    2300020: pTorus2
+    3300000: pCube1
+    3300002: pCube13
+    3300004: pCube14
+    3300006: pCube3
+    3300008: pCube7
+    3300010: pCube9
+    3300012: pPyramid1
+    3300014: pSphere1
+    3300016: pSphere2
+    3300018: pTorus1
+    3300020: pTorus2
+    4300000: pCube1
+    4300002: pCube3
+    4300004: pPyramid1
+    4300006: pCube7
+    4300008: pTorus1
+    4300010: pTorus2
+    4300012: pCube9
+    4300014: pCube13
+    4300016: pCube14
+    4300018: pSphere2
+    4300020: pSphere1
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
