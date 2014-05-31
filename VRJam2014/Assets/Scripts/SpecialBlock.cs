@@ -25,6 +25,7 @@ public class SpecialBlock : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		GameMgr.Instance.RegisterSpecialBlock (this);
 		if (trigger == Trigger.kGround)
 						triggerTag = "Ground";
 				else
@@ -53,9 +54,13 @@ public class SpecialBlock : MonoBehaviour {
 			}
 			else if (behavior == Behavior.kLose)
 			{
+				GameMgr.Instance.LoseBlockHit(this);
+				Destroy (gameObject);
 			}
 			else if (behavior == Behavior.kPoints)
 			{
+				GameMgr.Instance.PointBlockHit(this);
+				Destroy (gameObject);
 			}
 		}
 	}
