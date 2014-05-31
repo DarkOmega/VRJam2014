@@ -7,7 +7,10 @@ public class FaceBullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		spawnTime = Time.time;
-		rigidbody.velocity = SteamVR_Camera.Instance.offset.forward*3.0f;
+		if (SteamVR_Camera.Instance.offset != null)
+			rigidbody.velocity = SteamVR_Camera.Instance.offset.forward*3.0f;
+		else
+			rigidbody.velocity = SteamVR_Camera.Instance.transform.forward*3.0f;
 	}
 	
 	// Update is called once per frame
