@@ -1,7 +1,6 @@
 fileFormatVersion: 2
 guid: 6c13d782625094562b6430a923cc543f
 ModelImporter:
-<<<<<<< HEAD
   serializedVersion: 16
   fileIDToRecycleName:
     100000: //RootNode
@@ -64,10 +63,6 @@ ModelImporter:
     4300018: pSphere2
     4300020: pSphere1
     9500000: //RootNode
-=======
-  serializedVersion: 15
-  fileIDToRecycleName: {}
->>>>>>> FETCH_HEAD
   materials:
     importMaterials: 1
     materialName: 0
@@ -86,7 +81,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: .0500000007
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -119,4 +114,5 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
+  additionalBone: 0
   userData: 
