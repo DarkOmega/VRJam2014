@@ -21,7 +21,7 @@ public class FirstPersonBullet : MonoBehaviour {
 	void LaunchMe(){
 		//this.rigidbody.AddForce(MyCamera.transform.rotation.x * LaunchSpeed, MyCamera.transform.rotation.y, MyCamera.transform.rotation.z);
 		//this.rigidbody.velocity = MyCamera.offset.forward * 10.0f;
-		this.rigidbody.AddRelativeForce(MyCamera.offset.forward * 10.0f);
+		this.rigidbody.AddRelativeForce(MyCamera.offset.forward * 10000.0f);
 		Debug.Log("Farts!");
 	}
 }
