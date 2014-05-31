@@ -1,0 +1,13 @@
+steamvr_unity.zip
+VRJam2014/Assembly-CSharp-vs.csproj
+VRJam2014/Assembly-CSharp.csproj
+VRJam2014/Library/*
+VRJam2014/Temp/*
+VRJam2014/VRJam2014-csharp.sln
+VRJam2014/VRJam2014.sln
+VRJam2014/VRJam2014.userprefs
+
+*.lock
+*.DS_Store
+*.swp
+*.out
