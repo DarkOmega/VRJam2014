@@ -7,9 +7,16 @@ public class GameMgr : MonoBehaviour {
 
 	int remainingPointBlockCount = 0;
 
+	public GameObject physicsScene;
+	public GameObject podiumRoot;
+	public float sceneScale = .25f;
+
 	void Awake()
 	{
 		Instance = this;
+
+		physicsScene.transform.position = podiumRoot.transform.position;
+		physicsScene.transform.localScale = new Vector3(sceneScale, sceneScale, sceneScale);
 	}
 
 	// Use this for initialization
