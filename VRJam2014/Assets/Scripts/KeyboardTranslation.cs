@@ -41,8 +41,12 @@ public class KeyboardTranslation : MonoBehaviour {
 		}
 
 		deltaPos *= Time.deltaTime;
-
+		if(vrCam.offset != null){
 		deltaPos = vrCam.offset.rotation * deltaPos;
+		}
+		else{
+			deltaPos = vrCam.transform.rotation * deltaPos;
+		}
 
 		transform.position += deltaPos;
 	}
