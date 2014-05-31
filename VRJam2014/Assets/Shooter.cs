@@ -12,6 +12,6 @@ public class Shooter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		MyCamera.transform.localEulerAngles.Set(this.transform.localEulerAngles);
+		//MyCamera.transform.localEulerAngles.Set(this.transform.localEulerAngles);
 	}
 }
