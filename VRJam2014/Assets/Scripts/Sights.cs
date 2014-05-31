@@ -13,7 +13,7 @@ public class Sights : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 		RaycastHit hit;
 		bool didHit = Physics.Raycast (SteamVR_Camera.Instance.offset.position, SteamVR_Camera.Instance.offset.forward, out hit);
 		if (didHit) {

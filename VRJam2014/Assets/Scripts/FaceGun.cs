@@ -15,8 +15,16 @@ public class FaceGun : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space)) 
 		{
 			GameObject o = Instantiate (bullet) as GameObject;
-			o.transform.position = SteamVR_Camera.Instance.transform.position;
-			o.transform.rotation = SteamVR_Camera.Instance.transform.rotation;
+			if (SteamVR_Camera.Instance.offset)
+			{
+				o.transform.position = SteamVR_Camera.Instance.offset.position;
+				o.transform.rotation = SteamVR_Camera.Instance.offset.rotation;
+			}
+			else
+			{
+				o.transform.position = SteamVR_Camera.Instance.transform.position;
+				o.transform.rotation = SteamVR_Camera.Instance.transform.rotation;
+			}
 		}
 	}
 }
