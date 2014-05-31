@@ -6,12 +6,29 @@ public class SpecialBlock : MonoBehaviour {
 	float radius = 5.0F;
 	float power = 100.0F;
 
-	public string triggerTag = "Ground";
-	public bool explosionForce = true;
+	public enum Trigger
+	{
+		kGround,
+		kProjectile
+	}
+	public Trigger trigger;
+	string triggerTag;
+
+
+	public enum Behavior
+	{
+		kExplode,
+		kLose,
+		kPoints
+	}
+	public Behavior behavior;
 
 	// Use this for initialization
 	void Start () {
-	
+		if (trigger == Trigger.kGround)
+						triggerTag = "Ground";
+				else
+						triggerTag = "Bullet";
 	}
 	
 	// Update is called once per frame
@@ -22,7 +39,7 @@ public class SpecialBlock : MonoBehaviour {
 	void OnCollisionEnter(Collision collision) {
 		if (collision.gameObject.tag == triggerTag) {
 
-			if (explosionForce)
+			if (behavior == Behavior.kExplode)
 			{
 				Vector3 explosionPos = transform.position;
 				Collider[] colliders = Physics.OverlapSphere (explosionPos, radius);
@@ -32,8 +49,14 @@ public class SpecialBlock : MonoBehaviour {
 						hit.rigidbody.AddExplosionForce (power, explosionPos, radius, 30.0F);
 					}
 				}
+				Destroy (gameObject);
 			}
-			Destroy (gameObject);
+			else if (behavior == Behavior.kLose)
+			{
+			}
+			else if (behavior == Behavior.kPoints)
+			{
+			}
 		}
 	}
 }
