@@ -46,6 +46,14 @@ public class SteamVR_Camera : MonoBehaviour
 	static public RenderTexture sceneTexture, viewportTexture;
 	static public Material distortMaterial, blitMaterial;
 
+	public static SteamVR_Camera Instance { get; private set; }
+
+	void OnDestroy()
+	{
+		if (Instance == this)
+						Instance = null;
+		}
+
 	public void SetViewPlanes(float fNearZ, float fFarZ)
 	{
 		var hmd = SteamVR.IHmd.instance;
@@ -91,6 +99,8 @@ public class SteamVR_Camera : MonoBehaviour
 			Object.DestroyImmediate(this);
 			return;
 		}
+
+		Instance = this;
 
 		SteamVR_Utils.Event.Listen("calibrating", SetCalibrating);
 		SteamVR_Utils.Event.Listen("absolute_tracking", SetTrackingOutOfRange);
