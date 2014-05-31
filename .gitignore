@@ -19,3 +19,13 @@ VRJam2014/Assets/Art/Everything.mb
 VRJam2014/Assets/Shooter.cs
 
 VRJam2014/Assets/Art/Ring-small.mtl.meta
+
+*.csproj
+
+VRJam2014/Assembly-CSharp-firstpass-vs.csproj
+
+VRJam2014/Assembly-CSharp-firstpass.csproj
+
+VRJam2014/Assembly-UnityScript-firstpass-vs.unityproj
+
+VRJam2014/Assembly-UnityScript-firstpass.unityproj
