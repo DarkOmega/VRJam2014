@@ -13,11 +13,11 @@ public class CamRotate : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.RightArrow))
+		if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.Joystick1Button5))
 		{
 			targetAngle -= 90.0f;
 		}
-		if (Input.GetKeyDown(KeyCode.LeftArrow))
+		if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Joystick1Button4))
 		{
 			targetAngle += 90.0f;
 		}
