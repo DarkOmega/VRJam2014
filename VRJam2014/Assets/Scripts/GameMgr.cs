@@ -117,7 +117,7 @@ public class GameMgr : MonoBehaviour {
 	public void TookShot()
 	{
 		++numShotsTaken;
-		shotsText.text = GetRemainingShots () + " shots";
+		shotsText.text = GetRemainingShots ()>0?GetRemainingShots():0 + " shots";
 	}
 
 	public AudioClip GetBlockSFX()
