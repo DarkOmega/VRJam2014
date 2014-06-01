@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameMgr : MonoBehaviour {
 
@@ -10,6 +11,14 @@ public class GameMgr : MonoBehaviour {
 	public GameObject physicsScene;
 	public GameObject podiumRoot;
 	public float sceneScale = .25f;
+
+	public int blocksOnGround = 0;
+	public int totalNumBlocks = 0;
+
+	public int blocksToWin = 100;
+
+	public int totalNumShotsAvailable = 3;
+	public int numShotsTaken = 0;
 
 	void Awake()
 	{
@@ -26,7 +35,7 @@ public class GameMgr : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.R)) 
+		if (Input.GetKeyDown (KeyCode.R) || Input.GetKeyDown(KeyCode.Joystick1Button3)) 
 		{
 			Application.LoadLevel (Application.loadedLevel);
 		}
@@ -37,18 +46,42 @@ public class GameMgr : MonoBehaviour {
 		if (bl.behavior == SpecialBlock.Behavior.kPoints)
 			++remainingPointBlockCount;
 	}
-
-	public void PointBlockHit(SpecialBlock bl)
+	
+	public void RegisterBlock(Block bl)
 	{
-		--remainingPointBlockCount;
-		if (remainingPointBlockCount <= 0) 
+		++totalNumBlocks;
+	}
+
+	public void BlockHitGround(Block bl)
+	{
+		++blocksOnGround;
+		if (blocksOnGround >= blocksToWin) 
 		{
 			Application.LoadLevel (Application.loadedLevel+1);
 		}
 	}
 
+	public void PointBlockHit(SpecialBlock bl)
+	{
+		--remainingPointBlockCount;
+		/*if (remainingPointBlockCount <= 0) 
+		{
+			Application.LoadLevel (Application.loadedLevel+1);
+		}*/
+	}
+
 	public void LoseBlockHit(SpecialBlock bl)
 	{
 		Application.LoadLevel (Application.loadedLevel);
+	}
+
+	public int GetRemainingShots()
+	{
+		return totalNumShotsAvailable - numShotsTaken;
+	}
+
+	public void TookShot()
+	{
+		++numShotsTaken;
 	}
 }
