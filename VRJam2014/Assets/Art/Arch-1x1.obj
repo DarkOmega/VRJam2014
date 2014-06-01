@@ -1,6 +1,6 @@
 # This file uses centimeters as units for non-parametric coordinates.
 
-mtllib Arch-2x1.mtl
+mtllib Arch-1x1.mtl
 g default
 v -4.000000 1.500000 4.000000
 v 4.000000 1.500000 4.000000
