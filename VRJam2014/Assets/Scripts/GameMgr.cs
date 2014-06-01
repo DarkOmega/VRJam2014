@@ -23,6 +23,15 @@ public class GameMgr : MonoBehaviour {
 	public GUIText goalText;
 	public GUIText blockText;
 	public GUIText shotsText;
+	public GUIText winText;
+	public GUITexture winBkg;
+
+	public AudioClip[] blockSFX;
+
+	bool canPlaySFX;
+	float sfxTimer;
+
+	bool didWin;
 
 	void Awake()
 	{
@@ -37,6 +46,8 @@ public class GameMgr : MonoBehaviour {
 		goalText.text = "Knock down " + blocksToWin;
 		blockText.text = blocksOnGround + " blocks";
 		shotsText.text = GetRemainingShots () + " shots";
+		winText.text = "";
+		winBkg.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -44,6 +55,19 @@ public class GameMgr : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.R) || Input.GetKeyDown(KeyCode.Joystick1Button3)) 
 		{
 			Application.LoadLevel (Application.loadedLevel);
+		}
+		if (didWin) 
+		{
+			if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Joystick1Button7))
+			{
+				Application.LoadLevel (Application.loadedLevel+1);
+			}
+		}
+		if (!canPlaySFX) 
+		{
+			sfxTimer -= Time.deltaTime;
+			if (sfxTimer <= 0)
+				canPlaySFX = true;
 		}
 	}
 
@@ -63,7 +87,10 @@ public class GameMgr : MonoBehaviour {
 		++blocksOnGround;
 		if (blocksOnGround >= blocksToWin && GetRemainingShots() >= 0) 
 		{
-			Application.LoadLevel (Application.loadedLevel+1);
+			didWin = true;
+			winText.text = "You win!  Press start to continue!";
+			winBkg.enabled = true;
+			//Application.LoadLevel (Application.loadedLevel+1);
 		}
 		blockText.text = blocksOnGround + " blocks";
 	}
@@ -91,5 +118,16 @@ public class GameMgr : MonoBehaviour {
 	{
 		++numShotsTaken;
 		shotsText.text = GetRemainingShots () + " shots";
+	}
+
+	public AudioClip GetBlockSFX()
+	{
+		if (canPlaySFX) {
+			canPlaySFX = false;
+			sfxTimer = .25f;
+						return blockSFX [Random.Range (0, blockSFX.Length)];
+				}
+				else
+						return null;
 	}
 }
