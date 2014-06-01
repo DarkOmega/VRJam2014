@@ -7,6 +7,8 @@ public class Block : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if (audio == null)
+			gameObject.AddComponent<AudioSource> ();
 		GameMgr.Instance.RegisterBlock (this);
 
 
@@ -32,13 +34,18 @@ public class Block : MonoBehaviour {
 		{
 			SetHit();
 		}
+		if (collision.relativeVelocity.sqrMagnitude > .005f) {
+						AudioClip sfx = GameMgr.Instance.GetBlockSFX ();
+						if (sfx != null)
+								audio.PlayOneShot (sfx);
+				}
 	}
 
 	public void SetHit()
 	{
 		if (!hit) {
-						GameMgr.Instance.BlockHitGround (this);
-						Destroy (this);
+			GameMgr.Instance.BlockHitGround (this);
+						//Destroy (this);
 			hit = true;
 				}
 	}
