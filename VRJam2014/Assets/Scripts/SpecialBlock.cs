@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SpecialBlock : MonoBehaviour {
 	
 	float radius = .1F;
-	float power = 4000.0F;
+	float power = 800.0F;
 
 	public enum Trigger
 	{
@@ -44,15 +45,20 @@ public class SpecialBlock : MonoBehaviour {
 			{
 				Vector3 explosionPos = transform.position;
 				Collider[] colliders = Physics.OverlapSphere (explosionPos, radius);
+				HashSet<Rigidbody> bodies = new HashSet<Rigidbody>();
 				foreach (Collider hit in colliders) {
 					if (hit && hit.rigidbody)
 					{
-						hit.rigidbody.AddExplosionForce (power, explosionPos, radius, 0.0F);
+						bodies.Add (hit.rigidbody);
 					}
 					if (hit && hit.transform.parent && hit.transform.parent.rigidbody)
 					{
-						hit.transform.parent.rigidbody.AddExplosionForce (power, explosionPos, radius, 0.0F);
+						bodies.Add (hit.transform.parent.rigidbody);
 					}
+				}
+				foreach (Rigidbody body in bodies)
+				{
+					body.AddExplosionForce (power, explosionPos, radius, 0.0F);
 				}
 				Destroy (gameObject);
 			}
