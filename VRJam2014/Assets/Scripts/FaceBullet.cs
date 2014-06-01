@@ -4,6 +4,8 @@ using System.Collections;
 public class FaceBullet : MonoBehaviour {
 
 	float spawnTime;
+	bool doomed = false;
+
 	// Use this for initialization
 	void Start () {
 		spawnTime = Time.time;
@@ -22,8 +24,16 @@ public class FaceBullet : MonoBehaviour {
 
 	void OnCollisionEnter(Collision c)
 	{
+		if (doomed)
+			return;
+		doomed = true;
+		spawnTime = Time.time + .45f - 5.0f;
+		GetComponent<Animator> ().Play ("Fade");
+		//GetComponent<Animator> ().speed = 4.0f;
+		rigidbody.isKinematic = true;
+		collider.enabled = false;
 		audio.Play ();
-		Destroy (gameObject);
+		//Destroy (gameObject);
 		if (c.rigidbody) {
 			RaycastHit[] hits = Physics.RaycastAll(c.rigidbody.position, Vector3.up);
 			foreach (RaycastHit hit in hits)
