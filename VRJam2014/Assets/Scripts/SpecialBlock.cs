@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SpecialBlock : MonoBehaviour {
 	
-	float radius = .1F;
+	float radius = .3F;
 	float power = 800.0F;
 
 	public enum Trigger
