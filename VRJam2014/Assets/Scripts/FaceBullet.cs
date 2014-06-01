@@ -22,6 +22,7 @@ public class FaceBullet : MonoBehaviour {
 
 	void OnCollisionEnter(Collision c)
 	{
+		audio.Play ();
 		Destroy (gameObject);
 		if (c.rigidbody) {
 			RaycastHit[] hits = Physics.RaycastAll(c.rigidbody.position, Vector3.up);

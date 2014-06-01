@@ -26,6 +26,7 @@ public class FaceGun : MonoBehaviour {
 				o.transform.rotation = SteamVR_Camera.Instance.transform.rotation;
 			}
 			GameMgr.Instance.TookShot();
+			audio.Play();
 		}
 	}
 }
