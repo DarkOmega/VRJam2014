@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameMgr : MonoBehaviour {
 
@@ -10,6 +11,11 @@ public class GameMgr : MonoBehaviour {
 	public GameObject physicsScene;
 	public GameObject podiumRoot;
 	public float sceneScale = .25f;
+
+	public int blocksOnGround = 0;
+	public int totalNumBlocks = 0;
+
+	public int blocksToWin = 100;
 
 	void Awake()
 	{
@@ -37,14 +43,28 @@ public class GameMgr : MonoBehaviour {
 		if (bl.behavior == SpecialBlock.Behavior.kPoints)
 			++remainingPointBlockCount;
 	}
+	
+	public void RegisterBlock(Block bl)
+	{
+		++totalNumBlocks;
+	}
+
+	public void BlockHitGround(Block bl)
+	{
+		++blocksOnGround;
+		if (blocksOnGround >= blocksToWin) 
+		{
+			Application.LoadLevel (Application.loadedLevel+1);
+		}
+	}
 
 	public void PointBlockHit(SpecialBlock bl)
 	{
 		--remainingPointBlockCount;
-		if (remainingPointBlockCount <= 0) 
+		/*if (remainingPointBlockCount <= 0) 
 		{
 			Application.LoadLevel (Application.loadedLevel+1);
-		}
+		}*/
 	}
 
 	public void LoseBlockHit(SpecialBlock bl)
