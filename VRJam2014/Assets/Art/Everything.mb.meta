@@ -20,6 +20,7 @@ ModelImporter:
     100028: pCube16
     100030: pCube17
     100032: pCube18
+    100034: pCube20
     400000: //RootNode
     400002: group1
     400004: pCube1
@@ -37,6 +38,7 @@ ModelImporter:
     400028: pCube16
     400030: pCube17
     400032: pCube18
+    400034: pCube20
     2300000: pCube1
     2300002: pCube13
     2300004: pCube14
@@ -52,6 +54,7 @@ ModelImporter:
     2300024: pCube16
     2300026: pCube17
     2300028: pCube18
+    2300030: pCube20
     3300000: pCube1
     3300002: pCube13
     3300004: pCube14
@@ -67,6 +70,7 @@ ModelImporter:
     3300024: pCube16
     3300026: pCube17
     3300028: pCube18
+    3300030: pCube20
     4300000: pCube1
     4300002: pCube3
     4300004: pPyramid1
@@ -82,6 +86,7 @@ ModelImporter:
     4300024: pCube16
     4300026: pCube17
     4300028: pCube18
+    4300030: pCube20
     9500000: //RootNode
   materials:
     importMaterials: 1
