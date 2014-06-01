@@ -20,6 +20,10 @@ public class GameMgr : MonoBehaviour {
 	public int totalNumShotsAvailable = 3;
 	public int numShotsTaken = 0;
 
+	public GUIText goalText;
+	public GUIText blockText;
+	public GUIText shotsText;
+
 	void Awake()
 	{
 		Instance = this;
@@ -30,7 +34,9 @@ public class GameMgr : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		goalText.text = "Knock down " + blocksToWin;
+		blockText.text = blocksOnGround + " blocks";
+		shotsText.text = GetRemainingShots () + " shots";
 	}
 	
 	// Update is called once per frame
@@ -59,6 +65,7 @@ public class GameMgr : MonoBehaviour {
 		{
 			Application.LoadLevel (Application.loadedLevel+1);
 		}
+		blockText.text = blocksOnGround + " blocks";
 	}
 
 	public void PointBlockHit(SpecialBlock bl)
@@ -83,5 +90,6 @@ public class GameMgr : MonoBehaviour {
 	public void TookShot()
 	{
 		++numShotsTaken;
+		shotsText.text = GetRemainingShots () + " shots";
 	}
 }
