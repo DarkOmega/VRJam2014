@@ -15,7 +15,12 @@ public class Sights : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate () {
 		RaycastHit hit;
-		bool didHit = Physics.Raycast (SteamVR_Camera.Instance.offset.position, SteamVR_Camera.Instance.offset.forward, out hit);
+		Transform t;
+		if (SteamVR_Camera.Instance.offset != null)
+						t = SteamVR_Camera.Instance.offset;
+				else
+						t = SteamVR_Camera.Instance.transform;
+		bool didHit = Physics.Raycast (t.position, t.forward, out hit);
 		if (didHit) {
 						spawned.transform.position = hit.point;
 			spawned.SetActive(true);

@@ -3,8 +3,8 @@ using System.Collections;
 
 public class SpecialBlock : MonoBehaviour {
 	
-	float radius = 5.0F;
-	float power = 100.0F;
+	float radius = .1F;
+	float power = 4000.0F;
 
 	public enum Trigger
 	{
@@ -47,7 +47,11 @@ public class SpecialBlock : MonoBehaviour {
 				foreach (Collider hit in colliders) {
 					if (hit && hit.rigidbody)
 					{
-						hit.rigidbody.AddExplosionForce (power, explosionPos, radius, 30.0F);
+						hit.rigidbody.AddExplosionForce (power, explosionPos, radius, 0.0F);
+					}
+					if (hit && hit.transform.parent && hit.transform.parent.rigidbody)
+					{
+						hit.transform.parent.rigidbody.AddExplosionForce (power, explosionPos, radius, 0.0F);
 					}
 				}
 				Destroy (gameObject);

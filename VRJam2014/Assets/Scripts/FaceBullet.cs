@@ -19,4 +19,17 @@ public class FaceBullet : MonoBehaviour {
 			Destroy(gameObject);
 		}
 	}
+
+	void OnCollisionEnter(Collision c)
+	{
+		Destroy (gameObject);
+		if (c.rigidbody) {
+			RaycastHit[] hits = Physics.RaycastAll(c.rigidbody.position, Vector3.up);
+			foreach (RaycastHit hit in hits)
+			{
+				if (hit.rigidbody)
+					hit.rigidbody.WakeUp();
+			}
+		}
+	}
 }
