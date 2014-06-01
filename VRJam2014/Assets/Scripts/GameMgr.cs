@@ -17,6 +17,9 @@ public class GameMgr : MonoBehaviour {
 
 	public int blocksToWin = 100;
 
+	public int totalNumShotsAvailable = 3;
+	public int numShotsTaken = 0;
+
 	void Awake()
 	{
 		Instance = this;
@@ -32,7 +35,7 @@ public class GameMgr : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.R)) 
+		if (Input.GetKeyDown (KeyCode.R) || Input.GetKeyDown(KeyCode.Joystick1Button3)) 
 		{
 			Application.LoadLevel (Application.loadedLevel);
 		}
@@ -70,5 +73,15 @@ public class GameMgr : MonoBehaviour {
 	public void LoseBlockHit(SpecialBlock bl)
 	{
 		Application.LoadLevel (Application.loadedLevel);
+	}
+
+	public int GetRemainingShots()
+	{
+		return totalNumShotsAvailable - numShotsTaken;
+	}
+
+	public void TookShot()
+	{
+		++numShotsTaken;
 	}
 }
