@@ -12,7 +12,7 @@ public class FaceGun : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (GameMgr.Instance.GetRemainingShots()>0 && (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0))) 
+		if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0))
 		{
 			GameObject o = Instantiate (bullet) as GameObject;
 			if (SteamVR_Camera.Instance.offset)
