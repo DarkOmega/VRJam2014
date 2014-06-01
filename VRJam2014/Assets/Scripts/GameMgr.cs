@@ -55,7 +55,7 @@ public class GameMgr : MonoBehaviour {
 	public void BlockHitGround(Block bl)
 	{
 		++blocksOnGround;
-		if (blocksOnGround >= blocksToWin) 
+		if (blocksOnGround >= blocksToWin && GetRemainingShots() >= 0) 
 		{
 			Application.LoadLevel (Application.loadedLevel+1);
 		}
