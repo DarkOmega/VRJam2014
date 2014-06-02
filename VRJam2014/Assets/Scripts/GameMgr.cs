@@ -69,8 +69,14 @@ public class GameMgr : MonoBehaviour {
 			if (sfxTimer <= 0)
 				canPlaySFX = true;
 		}
+		if (Input.GetKeyDown (KeyCode.Joystick1Button8)) {
+			Application.LoadLevel(Application.loadedLevel-1);
+		}
+		if (Input.GetKeyDown (KeyCode.Joystick1Button9)) {
+			Application.LoadLevel(Application.loadedLevel+1);
+		}
 	}
-
+	
 	public void RegisterSpecialBlock(SpecialBlock bl)
 	{
 		if (bl.behavior == SpecialBlock.Behavior.kPoints)
